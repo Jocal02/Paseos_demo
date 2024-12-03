@@ -1,43 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
-        <title>Paseos Simulator</title>
-    </head>
-    <body>
-        <div class="container">
-            
-            <video autoplay loop muted playsinline class="background-clip">
-                <source src="paseos.mp4" type="video/mp4">
-            </video>
-            <div class="content">
-                <h1>Paseos Simulator</h1>
-                <a href="#" class="a">
-                    Press P to start
-                    <hover></hover>
-                    <span></span> <!-- First span (top line) -->
-                    <span></span> <!-- Second span (side line) -->
-                    <span></span> <!-- Third span (bottom line) -->
-                    <span></span> <!-- forth span (side line) -->
-                </a>
-                
-            </div>
-        </div>
-
-
-        To ensure the animation triggers when the "P" key is pressed and not when the mouse hovers over the button, you need to adjust the CSS and JavaScript. The key is to add the animation directly when the key is pressed.
-
-        Here's how to do it:
-        
-        Remove the hover effect from the CSS and create a separate animation class.
-        Use JavaScript to add this class when the "P" key is pressed.
-        Updated HTML:
-        html
-        Kopiera kod
-        <!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -74,18 +35,13 @@
     <script>
         document.addEventListener("keydown", function(event) {
             if (event.key === "p" || event.key === "P") {
-                // Add animation class to trigger animation
+
                 const button = document.querySelector(".a");
                 button.classList.add("animating");
-                
-                // Simulate hover state
                 button.classList.add("hover");
-
-                // Wait for the animation duration to complete (2 seconds in this case)
                 setTimeout(function() {
-                    // Redirect to the next page after animation completes
                     window.location.href = "http://127.0.0.1:5500/option.html";
-                }, 2000); // Adjust the timeout duration to match the animation time
+                }, 2000); 
             }
         });
     </script>
